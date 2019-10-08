@@ -10,8 +10,19 @@
 </head>
 <body>
     <h1> Chloe's Todo List</h1>
+    
     <input type = "text" id= "todoInput" />
     <button id = "add" onclick= addToList() > Add </button>
+    
+    <div class = "filter">
+    <p>Sort by : </p>
+    <select id = "filterSection" onchange="filterList()"> 
+            <option id ="all">  All </option>
+            <option id ="notdone"> Done Lists</option>
+            <option id ="notdone"> Undone Lists</option>
+    </select>
+    </div>
+
     <ul id= "todoList">
 
     </ul>

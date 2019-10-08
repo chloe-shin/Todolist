@@ -9,23 +9,23 @@ function addToList() {
         contents: item, //object의 컨텐츠 속성을 추가. 값을 todolist에 input하는 값으로 설정
         isDone: false   //object의 isDone 속성을 추가. 값을 false로 설정 
     };
-    todoList.push(obj); // todoList 배열에 object의 값(contents 및 isDone 두가지를 설정)이 더해지도록 함.
+    if (item == ''){ 
+      return
+    } 
+    todoList.push(obj); // todoList 배열의 element값에 object의 값(contents 및 isDone 두가지 속성을 설정)이 출력되도록 함.
+
     updateTodoList(todoList); // todoList 배열에 updateTodoList 기능 수행 할 수 있도록 함.
 };
 function updateTodoList(arr) {
-   
-    // let isthisdone = obj.isDone ? 'mark undone' : 'mark done';
-    // console.log("hello", isthisdone);
-
+  
     const html = arr.map((obj, index) => {
         let isthisdone = obj.isDone ? 'undone' : 'done';
-       
-        // if (obj.isDone){
+        //means:
+        // if (obj.isDone == true){
         //     isthisdone='undone'
         // }else {
         //     isthisdone='done'
         // }
-       
         return `<li class="${obj.isDone ? 'done' : 'undone'}"> 
                   ${obj.contents} 
                   <a href= "#" onclick= "remove(${index})" > Delete   </a> 
@@ -49,7 +49,28 @@ function remove(index) {
 
 function toggleDone(index) {
     todoList[index].isDone = !(todoList[index].isDone);
-
     updateTodoList(todoList);
 };
-//TodoList 배열의 값의 object중 .isDone의 값을 기본 false로 설정되어있는것을 !플립하여 true로 바꿈.
+//TodoList 배열의 값의 object중 .isDone의 값을 (기본 false로 설정되어있는것을) !(플립)하여 true로 바꿈.
+
+function doneList () {
+   let doneList = todoList.filter ((todo) => todo.isDone == true)
+   return updateTodoList (doneList)
+}
+
+function undoneList () {
+   let undoneList = todoList.filter ((todo) => todo.isDone ===false)
+   return updateTodoList (undoneList)
+}
+
+function filterList() {
+    console.log('hello');
+    let idx = document.getElementById('filterSection').selectedIndex;
+    if(idx == 1) {
+        doneList();
+    } else if(idx == 2) {
+        undoneList();
+    } else {
+        updateTodoList(todoList); // show everything
+    }
+}

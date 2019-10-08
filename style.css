@@ -1,11 +1,22 @@
 #add {
     background: orange;
+    font-family: roboto;
+    height: 30px;
     border-style: none;
     color: white;
-    border-radius: 10px;
+    border-radius: 5px;
     width: 80px;
 }
 
 .done {
     text-decoration: line-through;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+}
+
+#filterSection {
+    margin-left: 10px;
 }
