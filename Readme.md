@@ -1,7 +1,7 @@
 # CoderSchool FTW - * World Famous To Do List *
 
 Created with love by: Chloe Shin
-Please check my work at: https://chloe-money-converter.netlify.com  
+Please check my work at: https://chloe-todolist.netlify.com 
 
 
 ## Required function : Please check what I have done
